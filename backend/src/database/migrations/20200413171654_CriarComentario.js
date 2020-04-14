@@ -1,5 +1,5 @@
 exports.up = function(knex) {
-    return knex.schema.createTable('comentario', function (table) {
+    return knex.schema.createTable('comentarios', function (table) {
         table.increments();
         table.string('comentario').notNullable();
         table.string('userid').notNullable();
@@ -11,5 +11,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('comentario');
+    return knex.schema.dropTable('comentarios');
 };
