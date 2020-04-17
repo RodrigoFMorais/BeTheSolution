@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,400;0,700;1,400;1,500&display=swap');
+
+* {
+    margin:0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 400 14px Roboto, sans-serif;
+    background: #1F0C0C; 
+    -webkit-font-smoothing: antialiased;
+    color:  #FFFF;
+
+}
+
+input, button, textarea {
+    font: 400 18px Roboto, sans-serif;
+} 
+
+button {
+    cursor: pointer;
+}
+
+form input {
+
+    width: 400px;
+    height: 25px;
+    color: #FFFF;
+    background: rgba(47, 98, 175, 0.42);
+    border: 0;
+    border-radius: 8px;
+    padding: 0 24px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+
+}
+
+.button {
+    width: 65px;
+    height: 35px;
+    margin-bottom: 6px;
+    background: #1B57CB;
+    border: 0;
+    border-radius: 8px;
+    color: #FFFF;
+    font-weight: 700;
+    margin-top: 6px;
+    display: inline-flexbox;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    transition: filter 0.2s;
+
+
+}
+
+.button:hover{
+    filter: brightness(80%);
+}

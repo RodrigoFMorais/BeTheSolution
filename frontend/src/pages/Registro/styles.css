@@ -1,0 +1,14 @@
+.registro-container form{
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.registro-container form input {
+  margin-top: 16px;
+}
