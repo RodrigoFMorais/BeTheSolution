@@ -1,6 +1,6 @@
 .logon-container{
     width: 100%;
-    max-width: 1040px;
+    max-width: 1120px;
     height: 100vh;
     margin: 0 auto;
 
@@ -11,19 +11,39 @@
 
 .logon-container section.form {
     width: 100%;
-    max-width: 100%;
+    max-width: 350px;
+    margin-top: 30px;
 }
 
 .logon-container section.form form {
     margin-top: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 
 .logon-container section.form form h1 {
     font-size: 32px;
     margin-bottom: 32px;
     color: #41414d;
+} 
+
+.logon-container selection.form form a {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    color: #41414d;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.logon-container section.form form a svg {
+    margin-right: 8px;
+}
+
+.logon-container section.form form a:hover {
+    opacity: 0.8;
 }
 
 h1.Titulo {
@@ -36,25 +56,7 @@ h1.Titulo {
     margin-bottom: 16px;
 }
 
-.logon-container section.form form a {
-    align-items: center;
-    margin-top: 40px;
-    color: #41414d;
-    font-size: 18px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.2s; 
-}
-
-.logon-container section.form form a svg {
-    margin-right: 8px;
-}
-
-.logon-container section.form form a:hover {
-    opacity: 0.8;
-}
- 
 .logon-container section.form form h3 {
     margin-top: 30px;
     color: #41414d;
-}
+} 

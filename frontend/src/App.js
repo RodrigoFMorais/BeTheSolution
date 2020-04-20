@@ -4,7 +4,7 @@ import Routes from './routes';
 import './global.css' 
 
 
-function App() {
+export default function App() {
   return ( 
     <div>
       <Routes />
@@ -12,4 +12,3 @@ function App() {
   );
 }
 
-export default App;
