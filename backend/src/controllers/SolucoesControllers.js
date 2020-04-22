@@ -41,6 +41,7 @@ module.exports = {
             .select('userid')
             .first();
         
+        console.log(solucao);
         if (solucao.userid != userid) {
             return response.status(401).json({error : 'Operation not permited.'} );
         }

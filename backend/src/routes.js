@@ -9,8 +9,8 @@ const LikeControllers = require('./controllers/LikeControllers');
 
 const routes = express.Router();
 
-routes.get('/users' , UsuariosControllers.index);
-routes.post('/users' , UsuariosControllers.create);
+routes.get('/register' , UsuariosControllers.index);
+routes.post('/register' , UsuariosControllers.create);
 
 routes.get('/solucoes' , SolucoesControllers.index);
 routes.post('/solucoes' , SolucoesControllers.create);
