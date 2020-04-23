@@ -10,7 +10,7 @@ module.exports = {
         .join('usuarios', 'usuarios.userid', '=', 'solucoes.userid')
         .limit(5)
         .offset(( page - 1 ) * 5)
-        .select(['solucoes.*', 'usuarios.name']);
+        .select(['solucoes.*', 'usuarios.name', 'usuarios.email', 'usuarios.city']);
         
         response.header('Total-Solucoes', count['count(*)']);
 
