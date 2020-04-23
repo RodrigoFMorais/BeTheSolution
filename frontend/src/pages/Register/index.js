@@ -9,6 +9,7 @@ import logo from '../../assets/Logo.png';
 export default function(){
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [whatsapp, setWhatsapp] = useState('');
   const [passwd, setPasswd] = useState('');
   const [dnasc, setDataNascimento] = useState('');
   const [city, setCidade] = useState('');
@@ -23,6 +24,7 @@ export default function(){
       name, 
       passwd, 
       email, 
+      whatsapp,
       city, 
       uf, 
       dnasc
@@ -73,6 +75,13 @@ export default function(){
             value={passwd}
             onChange={e=>setPasswd(e.target.value)}
           />
+
+          <input 
+            placeholder="WhatsApp" type="text"
+            value={whatsapp}
+            onChange={e=>setWhatsapp(e.target.value)}
+          />
+
           <input 
             placeholder="Data de Nascimento" type="date"
             value={dnasc}
