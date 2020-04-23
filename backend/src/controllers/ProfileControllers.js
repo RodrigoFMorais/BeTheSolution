@@ -6,7 +6,7 @@ module.exports = {
 
         const userid = request.headers.authorization;
         const solucoes = await connection('solucoes')
-        .where('userid', userid)
+        .where('userid',userid)
         .select('*');
 
         return response.json(solucoes);  

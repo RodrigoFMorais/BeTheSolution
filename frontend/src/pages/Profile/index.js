@@ -6,41 +6,40 @@ import api from '../../services/api';
 import smalllogo from '../../assets/SmallLogo.png';
 import './styles.css';
 
-
 export default function Profile() {
   const [solucoes, setSolucoes] = useState([]);
 
   const name = localStorage.getItem('UserName');
-  const userid = localStorage.getItem('Userid');
+  const userId = localStorage.getItem('UserId');
 
   const history = useHistory();
+
   useEffect(() => {
-    api.get('profile',{
+    api.get('profile', {
       headers: {
-        Authorization:  userid,
+        Authorization:  userId
       }
-    }).then(response=>{
-       setSolucoes(response.data);
+    }).then(responses => {
+       setSolucoes(responses.data);
     })
-  }, [userid]);
+  }, [userId]);
 
   async function handleDeleSolucao(id) {
     try {
       await api.delete(`solucoes/${id}`,{
         headers: {
-          Authorization: userid,
+          Authorization: userId
         }
       });
-
       setSolucoes(solucoes.filter(solucao => solucao.id !== id));
+
     } catch (err) {
-      alert('Erro ao deletar caso, tente novamente!')
+        alert('Erro ao deletar caso, tente novamente!')
     }
   }
 
   function handleLogout() {
     localStorage.clear();
-
     history.push('/');
   }
 
@@ -50,7 +49,7 @@ export default function Profile() {
         <img src={smalllogo} alt="BeTheSolution" />
         <span>Seja bem vindo, {name}</span>
 
-        <Link className="button1" to="/newsolution">Cadastrar novo caso</Link>
+        <Link className="button" to="/newsolution">Cadastrar novo caso</Link>
         <button onClick={handleLogout} type="button">
           <FiPower size={18} color="#E02041" />
         </button>
@@ -59,27 +58,27 @@ export default function Profile() {
       <h1>Soluções cadastradas</h1>
 
       <ul>
-        {solucoes.map(solucao => (
+      {solucoes.map(solucao => (
                   <li key={solucao.id}>
-                  <strong> Problema: </strong>
-                  <p>{solucao.titulo}</p>
-                  <strong> Descrição: </strong>
-                  <p>{solucao.problemaDescricao}</p>
-                  <strong> Solução: </strong>
-                  <p>{solucao.problemaSolucao}</p>
-        
-                  <button onClick={()=> {handleDeleSolucao(solucao.id)}} type="button">
-                    <FiTrash2 size={20} color="#a8a8b3"/>
-                  </button>
-        
-                  <button className="like" type="button">
-                    <FiThumbsUp size={20} color="#a8a8b3"/>
-                  </button>
-        
-                  <button className="deslike" type="button">
-                    <FiThumbsDown size={20} color="#a8a8b3"/>
-                  </button>
-        
+                    <strong> Problema: </strong>
+                    <p>{solucao.titulo}</p>
+                    <strong> Descrição: </strong>
+                    <p>{solucao.problemaDescricao}</p>
+                    <strong> Solução: </strong>
+                    <p>{solucao.problemaSolucao}</p>
+          
+                    <button  onClick={()=> {handleDeleSolucao(solucao.id)}} type="button">
+                      <FiTrash2 size={20} color="#a8a8b3"/>
+                    </button>
+          
+                    <button className="like" type="button">
+                      <FiThumbsUp size={20} color="#a8a8b3"/>
+                    </button>
+          
+                    <button className="deslike" type="button">
+                      <FiThumbsDown size={20} color="#a8a8b3"/>
+                    </button>
+          
                 </li>
         ))}
       </ul>
