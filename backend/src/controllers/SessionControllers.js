@@ -1,22 +1,36 @@
 const connection = require('../database/connection');
+const bcrypt = require('bcrypt');
 
 
 module.exports = {
-    async create (request, response) {
+    async create(request, response) {
 
-        const {email, passwd} = request.body;
+        const {
+            email,
+            password
+        } = request.body;
 
         const usuario = await connection('usuarios')
-        .where({'email': email,'passwd': passwd} )
-        .select('name','userid')
-        .first();
+            .where({
+                'email': email
+            })
+            .select('name', 'userid', 'passwd')
+            .first();
 
-        if(!usuario) {
-            return response.status(400).json({ error: 'Usuário não encontrado.'});
-        } 
+        if (!usuario) {
+            return response.status(400).json({
+                error: 'Usuário não encontrado.'
+            });
+        }
 
-        return response.json(usuario);  
+        if (!(await bcrypt.compare(password, usuario.passwd))) {
+            return response.status(400).json({
+                error: 'Senha inválida!'
+            });
+        }
 
-},
+        return response.json(usuario);
+
+    },
 
 };

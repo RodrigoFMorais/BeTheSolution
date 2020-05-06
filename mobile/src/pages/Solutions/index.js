@@ -16,7 +16,7 @@ export default function Solutions(){
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-
+ 
 
   function navigateToDetail(solution) {
     navigation.navigate('Detalhes',{solution})
@@ -51,46 +51,46 @@ export default function Solutions(){
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={logoImg} />
-          <Text style={styles.headerText}>
-             Total de <Text style={styles.headerTextBold}>{total} casos</Text>.
-          </Text>
+        <Text style={styles.headerText}>
+            Total de <Text style={styles.headerTextBold}>{total} casos</Text>.
+        </Text>
+      </View>
+
+      <Text style={styles.title}>Bem-vindo!</Text>
+      <Text style={styles.description}>Veja as soluções abaixo e deixe um like.</Text>
+
+      <FlatList
+        data={solutions}
+        style={styles.solutions} 
+        keyExtractor={solution=>String(solution.id)}
+        showsVerticalScrollIndicator={false}
+        onEndReached={loadSolutions}
+        onEndReachedThreshold={0.2}
+        renderItem={({item: solution})=>(
+        <View style={styles.solution}>
+          <Text style={styles.solutionProperty}>Problema:</Text>
+          <Text style={styles.solutionValue}>{solution.titulo}</Text>
+
+          <Text style={styles.solutionProperty}>Descrição:</Text>
+          <Text style={styles.solutionValue}>{solution.problemaDescricao}</Text>
+
+          <Text style={styles.solutionProperty}>Solução:</Text>
+          <Text style={styles.solutionValue}>{solution.problemaSolucao}</Text>
+
+
+          <TouchableOpacity
+            style={styles.detailsButton}
+            onPress={()=>navigateToDetail(solution)}
+          >
+
+            <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
+            <Feather name="arrow-right" size={16} color="#1B57CB" />
+
+          </TouchableOpacity> 
+
         </View>
-
-        <Text style={styles.title}>Bem-vindo!</Text>
-        <Text style={styles.description}>Veja as soluções abaixo e deixe um like.</Text>
-
-        <FlatList
-          data={solutions}
-          style={styles.solutions} 
-          keyExtractor={solution=>String(solution.id)}
-          //showsVerticalScrollIndicator={false}
-          onEndReached={loadSolutions}
-          onEndReachedThreshold={0.2}
-          renderItem={({item: solution})=>(
-            <View style={styles.solution}>
-            <Text style={styles.solutionProperty}>Problema:</Text>
-            <Text style={styles.solutionValue}>{solution.titulo}</Text>
-
-            <Text style={styles.solutionProperty}>Descrição:</Text>
-            <Text style={styles.solutionValue}>{solution.problemaDescricao}</Text>
-
-            <Text style={styles.solutionProperty}>Solução:</Text>
-            <Text style={styles.solutionValue}>{solution.problemaSolucao}</Text>
-
-
-            <TouchableOpacity
-              style={styles.detailsButton}
-              onPress={()=>navigateToDetail(solution)}
-            >
-
-              <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
-              <Feather name="arrow-right" size={16} color="#1B57CB" />
-
-            </TouchableOpacity>
-
-          </View>
-          )}
-        />          
+        )}
+      />          
 
     </View>
   ); 

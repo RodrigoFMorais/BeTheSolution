@@ -1,6 +1,6 @@
 import React from 'react';
-import {Feather} from '@expo/vector-icons';
-import {View, Image, Text, TouchableOpacity, Linking} from 'react-native';
+import {Feather, Foundation} from '@expo/vector-icons';
+import {View, ScrollView, Image, Text, TouchableOpacity, Linking} from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import * as MailComposer from 'expo-mail-composer';
 
@@ -36,6 +36,10 @@ export default function Detail(){
     Linking.openURL(`whatsapp://send?phone=5534992630931&text=${message}`);
   }
 
+  function handleLike(e){
+    e.preventDefault();
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -45,7 +49,8 @@ export default function Detail(){
             <Feather name="arrow-left" size={28} color="#1B57CB" />
           </TouchableOpacity>
       </View>
- 
+    
+          <ScrollView>
           <View style={styles.solution}>
             <Text style={[styles.solutionProperty, {marginTop: 0} ]}>Problema:</Text>
             <Text style={styles.solutionValue}>{solution.titulo} da cidade de {solution.city}</Text>
@@ -55,25 +60,42 @@ export default function Detail(){
 
             <Text style={styles.solutionProperty}>Solução:</Text>
             <Text style={styles.solutionValue}>{solution.problemaSolucao}</Text>
+
+            <View style={styles.detailsButton}>
+              <TouchableOpacity
+                onPress={()=>{}}
+              >
+                <Foundation name="like" size={50} color="#1B57CB" />
+
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={()=>{}}
+              >
+                <Foundation name="dislike" size={50} color="#1B57CB" />
+
+              </TouchableOpacity>
+              </View>
           </View>
-      
-      <View style={styles.contactBox}>
-        <Text style={styles.solutionTitle}>Você concorda?</Text>
-        <Text style={styles.solutionTitle}>Veja se esta solução lhe parece factível.</Text>
+          
+          <View style={styles.contactBox}>
+            <Text style={styles.solutionTitle}>Você concorda?</Text>
+            <Text style={styles.solutionTitle}>Veja se esta solução lhe parece factível.</Text>
 
-        <Text style={styles.solutionDescription}>Entre em contato com o author.</Text>
+            <Text style={styles.solutionDescription}>Entre em contato com o author.</Text>
 
-        <View style={styles.actions}>
-          <TouchableOpacity style={styles.action} onPress={sendWhatsapp}>
-            <Text style={styles.actionText}>WhatsApp</Text>
-          </TouchableOpacity>
+            <View style={styles.actions}>
+              <TouchableOpacity style={styles.action} onPress={sendWhatsapp}>
+                <Text style={styles.actionText}>WhatsApp</Text>
+              </TouchableOpacity>
 
-          <TouchableOpacity style={styles.action} onPress={sendMail}>
-            <Text style={styles.actionText}>E-mail</Text>
-          </TouchableOpacity>
-        </View>
-
-      </View>
+              <TouchableOpacity style={styles.action} onPress={sendMail}>
+                <Text style={styles.actionText}>E-mail</Text>
+              </TouchableOpacity>
+            </View>
+            
+          </View>
+          </ScrollView>
     </View>
   );
 } 

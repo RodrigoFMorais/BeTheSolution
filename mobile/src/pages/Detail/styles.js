@@ -70,10 +70,15 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  actionText: {
+  actionText: { 
     color: '#FFF',
     fontSize: 15,
     fontWeight: 'bold'
   },
 
+  detailsButton: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
 });

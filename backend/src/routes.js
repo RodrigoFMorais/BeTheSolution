@@ -24,6 +24,6 @@ routes.post('/comentarios' , ComentarioControllers.create);
 routes.get('/comentarios' , ComentarioControllers.index);
 routes.delete('/comentarios/:id' , ComentarioControllers.delete);
 
-routes.post('/like' , LikeControllers.like);
+routes.post('/like' , LikeControllers.like); 
 
 module.exports = routes;

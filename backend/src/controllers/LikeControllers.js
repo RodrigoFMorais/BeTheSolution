@@ -18,14 +18,14 @@ module.exports = {
                 userid,
                 solucaoid,
             });
-            return response.json({ msg: 'Não existia então criou'});
+            //return response.json({ msg: 'Não existia então criou'});
         }
 
         await connection('likes')
         .where({'userid': userid, 'solucaoid': solucaoid })
         .update('like', like);
         
-        return response.json({ msg: 'Já existia, então modificou'});
+        //return response.json({ msg: 'Já existia, então modificou'});
     },
 
 
