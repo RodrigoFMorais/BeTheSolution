@@ -4,3 +4,4 @@ Plataforma para compartilhamento de possíveis soluções para problemas públic
 
 Projeto desenvolvido utilizando Node.Js & React.
 
+By Rodrigo Ferreira de Morais
