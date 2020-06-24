@@ -15,6 +15,8 @@
     "express": "^4.17.1",
     "jshint": "^2.11.0",
     "knex": "^0.20.13",
+    "logkitty": "^0.7.1",
+    "mem": "^6.1.0",
     "sqlite3": "^4.1.1"
   },
   "devDependencies": {
